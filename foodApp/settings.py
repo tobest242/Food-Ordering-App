@@ -133,3 +133,10 @@ REST_FRAMEWORK = {
     ],
 }
 
+
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '2856b47e744ce8'
+DEFAULT_FROM_EMAIL = 'info@foodapp.com'
+EMAIL_HOST_PASSWORD = '6ac74b5c60759d'
+EMAIL_PORT = '2525'
+EMAIL_USE_TLS = True
