@@ -14,7 +14,7 @@ def generateOtp():
     return otp
 
 def send_code_to_user(email):
-    subject = "One time passcode for Emal verificaio"
+    subject = "One time passcode for Email verificaion"
     otp_code = generateOtp()
     user = User.objects.get(email=email)
     current_site = "foodApp"
@@ -25,3 +25,13 @@ def send_code_to_user(email):
 
     d_email=EmailMessage(subject=subject, body=email_body, from_email=from_email, to=[user.email])
     d_email.send(fail_silently=True)
+
+
+def send_normal_email(data):
+    email = EmailMessage(
+        subject=data['email_subject'],
+        body=data['email_body'],
+        from_email=settings.EMAIL_HOST_USER,
+        to=[data['to_email']]
+    )
+    email.send()

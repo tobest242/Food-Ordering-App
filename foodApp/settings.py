@@ -1,6 +1,6 @@
 import environ
 from pathlib import Path
-
+from datetime import timedelta
 
 env = environ.Env(
     DEBUG=(bool, False),
@@ -133,6 +133,11 @@ REST_FRAMEWORK = {
     ],
 }
 
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=10),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+     "AUTH_HEADER_TYPES": ("Bearer",),
+}
 
 EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
 EMAIL_HOST_USER = '2856b47e744ce8'
